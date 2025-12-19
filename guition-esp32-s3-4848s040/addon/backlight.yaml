@@ -1,11 +1,11 @@
 # Backlight
-switch:
-  - platform: gpio
+light:
+  - platform: monochromatic
+    name: Backlight
     id: backlight
-    pin: 
-      ch422g: ch422g_hub
-      number: 2
+    output: backlight_output
     restore_mode: ALWAYS_ON
+    default_transition_length: 1s
     internal: true
 
 # Screensaver Presence Trigger
