@@ -239,6 +239,7 @@ lvgl:
                   id: print_progress_container
                   height: SIZE_CONTENT
                   width: SIZE_CONTENT
+                  clickable: false
                   layout:
                     type: flex
                     flex_flow: row
@@ -286,6 +287,7 @@ lvgl:
                   id: dryer_humidity_container
                   height: SIZE_CONTENT
                   width: SIZE_CONTENT
+                  clickable: false
                   layout:
                     type: flex
                     flex_flow: row
@@ -304,7 +306,6 @@ lvgl:
                         text_font: roboto17_font
                         text_color: 0xFFFFFF
                         text: "%"
-                        y: -10
               - label:
                   align: bottom_left
                   text: "Dryer"
