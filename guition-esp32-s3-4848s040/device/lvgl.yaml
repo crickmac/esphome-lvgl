@@ -1046,11 +1046,12 @@ lvgl:
               # Down button
               - button:
                   id: aircon_lab_down_button
-                  width: 90px
-                  height: 90px
+                  width: 70px
+                  height: 70px
                   x: 160
                   y: 360
                   styles: control
+                  radius: 35px
                   widgets:
                     - label:
                         text: "-"
@@ -1070,11 +1071,12 @@ lvgl:
               # Up button
               - button:
                   id: aircon_lab_up_button
-                  width: 90px
-                  height: 90px
+                  width: 70px
+                  height: 70px
                   x: 260
                   y: 360
                   styles: control
+                  radius: 35px
                   widgets:
                     - label:
                         text: "+"
