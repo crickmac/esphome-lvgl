@@ -71,6 +71,7 @@ lvgl:
         type: flex
         flex_flow: row_wrap
       scrollbar_mode: "off"
+      scroll_dir: "hor"
       width: 100%
       bg_color: Black
       bg_opa: cover
@@ -479,6 +480,7 @@ lvgl:
         type: flex
         flex_flow: row_wrap
       scrollbar_mode: "off"
+      scroll_dir: "hor"
       width: 100%
       bg_color: Black
       bg_opa: cover

@@ -17,4 +17,4 @@ font:
 lvgl:
   style_definitions:
     - id: roboto15_style
-      text_font: roboto15_font
+      text_font: roboto19_font
