@@ -69,7 +69,7 @@ lvgl:
     - id: main_page
       layout: 
         type: flex
-        flex_flow: row_nowrap
+        flex_flow: row
       scrollbar_mode: "auto"
       scroll_dir: "hor"
       width: 100%
@@ -478,7 +478,7 @@ lvgl:
     - id: blinds_page
       layout: 
         type: flex
-        flex_flow: row_nowrap
+        flex_flow: row
       scrollbar_mode: "auto"
       scroll_dir: "hor"
       width: 100%
