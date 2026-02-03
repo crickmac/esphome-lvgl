@@ -511,7 +511,7 @@ lvgl:
             flex_grow: 1
             checkable: false
             id: blinds_back_button
-            styles: control_dark
+            styles: control
             widgets:
               - label:
                   text_font: $icon_font
