@@ -1054,7 +1054,6 @@ lvgl:
                   x: 160
                   y: 360
                   styles: control
-                  radius: 45px
                   widgets:
                     - label:
                         text: "-"
@@ -1079,7 +1078,6 @@ lvgl:
                   x: 260
                   y: 360
                   styles: control
-                  radius: 45px
                   widgets:
                     - label:
                         text: "+"
