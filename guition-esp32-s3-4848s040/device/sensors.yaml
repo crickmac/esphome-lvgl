@@ -188,6 +188,91 @@ sensor:
           value: !lambda return (int)x;
 
   # ===========================================================================
+  # SENSOR: Heating Current Temperature
+  # ===========================================================================
+  # WHAT IT MONITORS:
+  #   Current temperature reported by the heating thermostat
+  #   Watches: climate.central_heating (current_temperature)
+  #
+  # WHAT IT UPDATES:
+  #   The current temperature label and arc on the heating lab page
+  #
+  # RELATED UI ELEMENT:
+  #   lvgl.yaml → heating_lab_current_label, heating_current_arc
+  # ===========================================================================
+  - platform: homeassistant
+    entity_id: climate.central_heating
+    id: heating_current_temperature
+    attribute: current_temperature
+    on_value:
+      - lvgl.label.update:
+          id: heating_lab_current_label
+          text:
+            format: "%.1f°C"
+            args: [ 'x' ]
+      - lvgl.arc.update:
+          id: heating_current_arc
+          value: !lambda return (int)roundf(x * 2.0f);
+
+  # ===========================================================================
+  # SENSOR: Heating Target Temperature
+  # ===========================================================================
+  # WHAT IT MONITORS:
+  #   Target/set temperature reported by the heating thermostat
+  #   Watches: climate.central_heating (temperature)
+  #
+  # WHAT IT UPDATES:
+  #   The target temperature label and arc on the heating lab page
+  #
+  # RELATED UI ELEMENT:
+  #   lvgl.yaml → heating_lab_target_label, heating_target_arc
+  # ===========================================================================
+  - platform: homeassistant
+    entity_id: climate.central_heating
+    id: heating_target_temperature
+    attribute: temperature
+    on_value:
+      - lvgl.label.update:
+          id: heating_lab_target_label
+          text:
+            format: "%.1f°C"
+            args: [ 'x' ]
+      - lvgl.arc.update:
+          id: heating_target_arc
+          value: !lambda return (int)roundf(x * 2.0f);
+
+# =============================================================================
+# TEXT SENSORS (String Values)
+# =============================================================================
+
+text_sensor:
+  # ===========================================================================
+  # SENSOR: Heating HVAC Action
+  # ===========================================================================
+  # WHAT IT MONITORS:
+  #   Current action reported by the heating thermostat (heating/off/idle)
+  #   Watches: climate.central_heating (hvac_action)
+  #
+  # WHAT IT UPDATES:
+  #   The mode label on the heating lab page
+  #
+  # RELATED UI ELEMENT:
+  #   lvgl.yaml → heating_lab_mode_label
+  # ===========================================================================
+  - platform: homeassistant
+    entity_id: climate.central_heating
+    id: heating_hvac_action
+    attribute: hvac_action
+    on_value:
+      - lvgl.label.update:
+          id: heating_lab_mode_label
+          text: !lambda |-
+            if (x == "heating") return "Heating";
+            if (x == "idle") return "Idle";
+            if (x == "off") return "Off";
+            return x.c_str();
+
+  # ===========================================================================
   # SENSOR: Centauri Carbon Print Progress
   # ===========================================================================
   # WHAT IT MONITORS:
