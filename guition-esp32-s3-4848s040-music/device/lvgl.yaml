@@ -81,9 +81,8 @@ lvgl:
         - bar:
             id: media_progress_bar
             x: 0
-            y: 352
-            width: 100%
-            height: 8px
+            y: 480
+            height: 4px
             min_value: 0
             max_value: 100
             value: 0
