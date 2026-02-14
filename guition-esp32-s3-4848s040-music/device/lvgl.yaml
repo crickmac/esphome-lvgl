@@ -34,26 +34,25 @@ lvgl:
             src: album_art_background
             opa: 70%
 
-        # Song title (single line, truncate with ... when long); 12px inset
+        # Song title + artist sit on the same row as the control buttons (left side)
         - label:
             id: media_title_label
             text: "—"
             x: 12
-            y: 0
-            width: 456px
+            y: 372
+            width: 284px
             height: 30px
             long_mode: dot
-            text_font: roboto24_font
+            text_font: roboto30_font
             text_color: 0xFFFFFF
             text_align: left
 
-        # Artist; 12px inset
         - label:
             id: media_artist_label
             text: "—"
             x: 12
-            y: 32
-            width: 456px
+            y: 404
+            width: 284px
             text_font: roboto19_font
             text_color: 0xB0B0B0
             text_align: left
@@ -112,7 +111,7 @@ lvgl:
             id: media_elapsed_label
             text: "0:00"
             x: 12
-            y: 444
+            y: 440
             width: 40px
             text_font: roboto15_font
             text_color: 0xFFFFFF
@@ -121,7 +120,7 @@ lvgl:
             id: media_duration_label
             text: "0:00"
             x: 428
-            y: 444
+            y: 440
             width: 40px
             text_font: roboto15_font
             text_color: 0xFFFFFF

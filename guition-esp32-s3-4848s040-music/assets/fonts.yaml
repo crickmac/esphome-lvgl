@@ -2,8 +2,8 @@
 # Omitting unused sizes (17, 18, 36, 44, 48, 72) to stay under flash limit.
 font:
   - file: "gfonts://Roboto"
-    id: roboto24_font
-    size: 24
+    id: roboto30_font
+    size: 30
     bpp: 4
 
   - file: "gfonts://Roboto"
