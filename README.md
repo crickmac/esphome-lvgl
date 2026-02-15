@@ -73,9 +73,13 @@ Follow these steps in order. The first flash is the only fiddly part; after that
    Connect the board with a **USB cable**. In the dashboard, compile and choose **Install** (flash). Pick the serial port when asked.  
    - If the board isn’t found, install the USB drivers (CP210x, CH340, etc.) — ESPHome will prompt you and give links.  
    - If the board has factory demo firmware and the flash fails, put it in **flashing mode** once: hold **boot**, press **reset**, then try flashing again. You usually only need to do this once.
+   - Disconnect the USB and reconnect it to power each time you flash over USB. This isn't required for updates over WiFi.
 
 6. **Done**  
    After a successful flash, the device should appear in the ESPHome dashboard and in Home Assistant as a discovered device. Later you can update it over WiFi (OTA) from the dashboard.
+
+7. **Allow Home Assistant actions**  
+   For the screen to be able to control things in Home Assistant (e.g. toggle lights, activate scenes), you need to enable this per-device. In Home Assistant go to **Settings → Devices & Services → ESPHome**, click **Configure** on your device, and turn on **"Allow the device to perform Home Assistant actions"**. Without this, any `homeassistant.action` calls from the display will be silently ignored.
 
 **Optional:** To change what’s on the display, edit the YAML in the device folder: `device/device.yaml`, `device/sensors.yaml`, `device/lvgl.yaml`, plus `addon/`, `assets/`, and `theme/` as needed.
 
