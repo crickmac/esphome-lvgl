@@ -181,6 +181,7 @@ touchscreen:
           id(touch_y_start) = touch.y;
           id(touch_x_end) = touch.x;
           id(touch_y_end) = touch.y;
+          ESP_LOGI("swipe", "TOUCH start x=%d y=%d", touch.x, touch.y);
     on_update:
       - lambda: |-
           for (auto touch: touches) {
@@ -193,11 +194,17 @@ touchscreen:
       - lambda: |-
           int dx = id(touch_x_end) - id(touch_x_start);
           int dy = id(touch_y_end) - id(touch_y_start);
+          ESP_LOGI("swipe", "RELEASE dx=%d dy=%d (start=%d,%d end=%d,%d)",
+                   dx, dy,
+                   id(touch_x_start), id(touch_y_start),
+                   id(touch_x_end), id(touch_y_end));
           // Require 80px+ horizontal movement and must be clearly horizontal
           if (abs(dx) > 80 && abs(dx) > abs(dy) * 2) {
             if (dx > 0) {
+              ESP_LOGI("swipe", "SWIPE RIGHT -> previous track");
               id(swipe_previous_track).execute();
             } else {
+              ESP_LOGI("swipe", "SWIPE LEFT -> next track");
               id(swipe_next_track).execute();
             }
           }
