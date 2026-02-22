@@ -15,6 +15,23 @@ esphome:
   platformio_options:
     board_build.flash_mode: dio
 
+# Secondary ESP32-C6 device for connectivity
+esp32_hosted:
+  variant: esp32c6
+  reset_pin: GPIO54
+  cmd_pin: GPIO19
+  clk_pin: GPIO18
+  d0_pin: GPIO14
+  d1_pin: GPIO15
+  d2_pin: GPIO16
+  d3_pin: GPIO17
+  active_high: true
+
+# Video memory
+psram:
+  mode: hex
+  speed: 200MHz
+
 # Over the Air Updates
 ota:
   platform: esphome
@@ -30,23 +47,6 @@ logger:
 external_components:
   - source: github://kvj/esphome@jd9365_gsl3680
     components: [gsl3680]
-
-# Video memory
-psram:
-  mode: hex
-  speed: 200MHz
-
-# Secondary ESP32-C6 device for connectivity
-esp32_hosted:
-  variant: esp32c6
-  reset_pin: GPIO54
-  cmd_pin: GPIO19
-  clk_pin: GPIO18
-  d0_pin: GPIO14
-  d1_pin: GPIO15
-  d2_pin: GPIO16
-  d3_pin: GPIO17
-  active_high: true
 
 # Power management
 esp_ldo:
@@ -69,20 +69,6 @@ light:
     restore_mode: ALWAYS_ON
     default_transition_length: 0s
     gamma_correct: 1.0
-
-# Display
-display:
-  - platform: mipi_dsi
-    model: JC8012P4A1
-    reset_pin: GPIO27
-    update_interval: 17ms
-    id: my_display
-    rotation: 180
-    auto_clear_enabled: false
-    color_order: RGB
-    dimensions:
-      width: 800
-      height: 1280
 
 # I2C
 i2c:
@@ -112,3 +98,17 @@ touchscreen:
               - light.turn_on: display_backlight
               - lvgl.resume:
               - lvgl.widget.redraw:
+
+# Display
+display:
+  - platform: mipi_dsi
+    model: JC8012P4A1
+    reset_pin: GPIO27
+    update_interval: 17ms
+    id: my_display
+    rotation: 180
+    auto_clear_enabled: false
+    color_order: RGB
+    dimensions:
+      width: 800
+      height: 1280
