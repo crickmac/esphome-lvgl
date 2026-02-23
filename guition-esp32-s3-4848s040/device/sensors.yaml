@@ -497,7 +497,7 @@ binary_sensor:
   # ===========================================================================
   - platform: homeassistant
     id: office_3d_printer_power
-    entity_id: switch.office_3d_printer_power
+    entity_id: switch.3d_printer
     trigger_on_initial_state: true
     on_state:
       then:
