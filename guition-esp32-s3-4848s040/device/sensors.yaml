@@ -333,7 +333,7 @@ text_sensor:
   #   lvgl.yaml → print_progress_label
   # ===========================================================================
   - platform: homeassistant
-    entity_id: sensor.centauri_carbon_percent_complete_helper
+    entity_id: sensor.neptune4pro_progress
     id: centauri_carbon_percent
     on_value:
       - lvgl.label.update:
@@ -356,7 +356,7 @@ text_sensor:
   #   lvgl.yaml → dryer_humidity_label
   # ===========================================================================
   - platform: homeassistant
-    entity_id: sensor.office_filament_heater_sensor_humidity
+    entity_id: sensor.tempsensorfillement_humidite
     id: filament_heater_humidity
     on_value:
       - lvgl.label.update:
