@@ -117,12 +117,12 @@ lvgl:
               - label:
                   align: bottom_left
                   id: scene_features_label
-                  text: "Features"
+                  text: "WLED"
             on_press:
               - homeassistant.service:
-                  service: switch.toggle
+                  service: light.toggle
                   data:
-                    entity_id: switch.office_features_stateful_scene
+                    entity_id: light.wled_tablettes
 
         # =========================================================================
         # BUTTON: Calls Scene
@@ -327,7 +327,7 @@ lvgl:
               - label:
                   align: bottom_left
                   id: printer_power_label
-                  text: "Printer"
+                  text: "3D Printer"
             on_click:
               - homeassistant.service:
                   service: switch.toggle
@@ -524,7 +524,7 @@ lvgl:
                   text: $aircon
               - label:
                   align: bottom_left
-                  text: "Heat"
+                  text: "Thermostat"
             on_click:
               - lvgl.page.show: heating_lab_page
 
